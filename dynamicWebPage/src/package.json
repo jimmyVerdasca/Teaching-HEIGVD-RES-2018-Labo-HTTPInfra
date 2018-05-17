@@ -1,0 +1,15 @@
+{
+  "name": "students",
+  "version": "0.1.0",
+  "description": "labo http HEIG-VD",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jimmy Verdasca",
+  "license": "ISC",
+  "dependencies": {
+    "chance": "^1.0.16",
+    "express": "^4.16.3"
+  }
+}
