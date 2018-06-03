@@ -10,6 +10,12 @@ docker build -t proxy ./proxyBalancing
 docker run -d --name static static
 docker run -d --name dynamic dynamic
 
+OU
+docker run -d --name static1 static
+docker run -d --name static2 static
+docker run -d --name dynamic1 dynamic
+docker run -d --name dynamic2 dynamic
+
 #regarder les adresses données automatiquement par docker
 docker inspect static | grep -i ipaddr
 #réponse 172.17.0.2
@@ -18,6 +24,10 @@ docker inspect dynamic | grep -i ipaddr
 
 #lancement du container proxy
 docker run -d -e STATIC_APP=172.17.0.2:80 -e DYNAMIC_APP=172.17.0.3:3000 --name proxy -p 8080:80 proxy
+
+OU
+
+docker run -p 8080:80 -e STATIC_APP1=172.17.0.2:80 -e STATIC_APP2=172.17.0.3:80 -e DYNAMIC_APP1=172.17.0.4:3000 -e DYNAMIC_APP2=172.17.0.5:3000 proxy
 
 #pour repartir de 0
 stop all containers:
